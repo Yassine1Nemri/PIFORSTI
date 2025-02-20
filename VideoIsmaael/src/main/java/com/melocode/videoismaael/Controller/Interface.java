@@ -447,7 +447,7 @@ public class Interface {
                         } else {
                             if (tmpp.getRoles().equals("[\"ROLE_ADMIN\"]")) {
                                 System.out.println("Admin logged in.");
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Projet.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Dashboard.fxml"));
                                 Parent adminRoot = loader.load();
 
                                 Scene adminScene = new Scene(adminRoot);

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="498.0" prefWidth="863.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.videoismaael.Controller.Dashboard">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" prefHeight="40.0" prefWidth="823.0" text="Users List">
+            <font>
+                <Font name="Segoe UI Bold" size="24.0" />
+            </font>
+        </Label>
+        <ScrollPane layoutX="20.0" layoutY="83.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.800000000000068" AnchorPane.topAnchor="40.0">
+            <content>
+                <GridPane fx:id="grid" alignment="CENTER">
+                </GridPane>
+            </content>
+        </ScrollPane>
+        <Pagination fx:id="pagination" layoutX="260.0" layoutY="461.0" prefWidth="362.0" AnchorPane.topAnchor="450.0" />
+        <Button layoutX="744.0" layoutY="446.0" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="98.0" text="Refresh" AnchorPane.topAnchor="550.2" />
+        <Button layoutX="32.0" layoutY="446.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="98.0" text="Logout" AnchorPane.topAnchor="559.0" />
+        <TextField fx:id="searchField" layoutX="372.0" layoutY="10.0" prefHeight="19.0" promptText="Search..." />
+        <Button fx:id="search" layoutX="691.0" layoutY="20.0" mnemonicParsing="false" onAction="#search" prefWidth="74.0" text="Search" />
+    </children>
+</AnchorPane>

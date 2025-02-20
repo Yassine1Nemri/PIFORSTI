@@ -102,6 +102,9 @@ public class User {
         this.is_banned = is_banned;
     }
 
+
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -115,5 +118,8 @@ public class User {
                 ", is_banned=" + is_banned +
                 '}';
     }
+
+
+
 
 }

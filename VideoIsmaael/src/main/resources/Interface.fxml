@@ -145,7 +145,7 @@
                </Pane>
                <Pane fx:id="pn_index" prefHeight="530.0" prefWidth="720.0" style="-fx-background-color: #f9f9f9;">
                   <children>
-                     <Label layoutX="282.0" layoutY="35.0" prefHeight="17.0" prefWidth="157.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 16pt; -fx-text-fill: #333;" text="Home" />
+                     <Label layoutX="750.0" layoutY="470.0" prefHeight="17.0" prefWidth="157.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 16pt; -fx-text-fill: #333;" text="Home" />
                   </children>
                </Pane>
             </children>

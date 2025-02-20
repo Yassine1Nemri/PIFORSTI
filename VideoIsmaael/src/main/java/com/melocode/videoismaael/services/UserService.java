@@ -53,6 +53,17 @@ public class UserService implements ICrud<User> {
         return rs;
     }
 
+    public ResultSet Getall() {
+        ResultSet rs = null;
+        try {
+            String req = "SELECT * FROM `user`";
+            PreparedStatement st = cnx2.prepareStatement(req);
+            rs = st.executeQuery(req);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return rs;
+    }
 
 
     @Override
@@ -99,8 +110,6 @@ public class UserService implements ICrud<User> {
         String query = "SELECT * FROM user LIMIT ? OFFSET ?";
         return executeQueryWithParams(query, endIndex - startIndex, startIndex);
     }
-
-
 
 
     private String hashPassword(String plainPassword) {
@@ -164,10 +173,8 @@ public class UserService implements ICrud<User> {
         }
     }
 
-    private void saveExcelFile(Workbook workbook) throws IOException {
-        try (FileOutputStream fileOut = new FileOutputStream("users.xlsx")) {
-            workbook.write(fileOut);
-        }
-        System.out.println("Exportation terminée avec succès.");
-    }
+
+
+
+
 }
