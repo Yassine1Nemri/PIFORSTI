@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.videoismaael.Controller.UserReclamationController">
+    <VBox spacing="15" alignment="TOP_CENTER">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- Header -->
+        <Label text="Submit Your Reclamation" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <!-- Form -->
+        <GridPane vgap="10" hgap="10">
+            <Label text="Subject:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfSubject" promptText="Enter subject"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextArea fx:id="taDescription" promptText="Describe your issue"
+                      prefRowCount="4" wrapText="true"
+                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT"
+                  GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <Button fx:id="btnClear" text="Clear" onAction="#handleClear"/>
+                <Button fx:id="btnSubmit" text="Submit" onAction="#handleSubmit"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            </HBox>
+        </GridPane>
+
+        <!-- List of User's Reclamations -->
+        <Label text="Your Reclamations" style="-fx-font-weight: bold;"/>
+        <ListView fx:id="listViewReclamations" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</AnchorPane>

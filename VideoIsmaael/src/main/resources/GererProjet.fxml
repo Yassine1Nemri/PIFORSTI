@@ -9,7 +9,9 @@
       <TextField disable="true" layoutX="246.0" layoutY="110.0" prefHeight="26.0" prefWidth="90.0" text="Gérer Projet" />
       <Button fx:id="btnProjet" layoutX="346.0" layoutY="150.0" onAction="#openGestionProjet" text="Gestion des Projets" />
       <Button fx:id="login" layoutX="346.0" layoutY="150.0" onAction="#login" text="login" />
-      <Button fx:id="btnTache" layoutX="100.0" layoutY="150.0" onAction="#openGestionTache" text="Gestion des Tâches" />
+      <Button fx:id="gg" layoutX="100.0" layoutY="150.0" onAction="#openGestionTache" text="Gestion des Tâches" />
+      <Button fx:id="ee" layoutX="1000.0" layoutY="150.0" onAction="#openReclamation" text="user reclamation" />
+      <Button fx:id="rr" layoutX="100.0" layoutY="150.0" onAction="#openadminreclamation" text="admin reclamation " />
 
    </children>
 </AnchorPane>

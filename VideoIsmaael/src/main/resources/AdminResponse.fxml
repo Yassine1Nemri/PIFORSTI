@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.videoismaael.Controller.AdminResponseController">
+    <VBox spacing="15">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- Header -->
+        <Label text="Manage Reclamations" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <!-- Pending Reclamations List -->
+        <Label text="Pending Reclamations" style="-fx-font-weight: bold;"/>
+        <ListView fx:id="listViewPendingReclamations" prefHeight="200"/>
+
+        <!-- Response Section -->
+        <VBox spacing="10" style="-fx-background-color: #f4f4f4; -fx-padding: 10;">
+            <Label text="Selected Reclamation Details:" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="taReclamationContent" editable="false"
+                      prefRowCount="3" wrapText="true"/>
+
+            <Label text="Your Response:"/>
+            <TextArea fx:id="taResponse" promptText="Type your response"
+                      prefRowCount="3" wrapText="true"/>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <ComboBox fx:id="cbStatus" promptText="Update Status"/>
+                <Button fx:id="btnSendResponse" text="Send Response"
+                        onAction="#handleSendResponse"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

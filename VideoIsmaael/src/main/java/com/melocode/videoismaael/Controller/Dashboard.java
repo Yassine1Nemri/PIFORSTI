@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import com.melocode.videoismaael.entities.User;
 import com.melocode.videoismaael.services.UserService;
 
+import java.awt.*;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,8 +33,11 @@ public class Dashboard {
     private GridPane grid;
     @FXML
     private Pagination pagination;
-    @FXML
 
+
+
+    @FXML
+    private Button deleteButton;
     // Total number of users
     private int totalUsers = 50 ;/* Get the total number of users */;
 
@@ -201,6 +205,8 @@ public class Dashboard {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+
 
     @FXML
     private void search() {

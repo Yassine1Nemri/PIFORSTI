@@ -88,7 +88,7 @@ public class UserService implements ICrud<User> {
         }
     }
 
-    @Override
+
     public void supprimerEntite(User user) {
         String query = "DELETE FROM user WHERE id=?";
         try (PreparedStatement st = cnx2.prepareStatement(query)) {
@@ -98,6 +98,8 @@ public class UserService implements ICrud<User> {
             handleSQLException(e, "suppression de l'utilisateur");
         }
     }
+
+
 
     // 🔹 Additional methods (search, ban, export)
 
