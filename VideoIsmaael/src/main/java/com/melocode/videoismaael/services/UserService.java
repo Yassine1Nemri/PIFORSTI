@@ -1,5 +1,7 @@
 package com.melocode.videoismaael.services;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import com.melocode.videoismaael.entities.User;
 import org.apache.poi.ss.usermodel.*;
 import com.melocode.videoismaael.tools.DatabaseConnection;
@@ -89,13 +91,22 @@ public class UserService implements ICrud<User> {
     }
 
 
-    public void supprimerEntite(User user) {
-        String query = "DELETE FROM user WHERE id=?";
-        try (PreparedStatement st = cnx2.prepareStatement(query)) {
-            st.setInt(1, user.getId());
-            executeUpdate(st, "Utilisateur supprimé avec succès !");
+    public void supprimerEntite(User p) {
+        String requet = "DELETE FROM user WHERE id =?";
+        try {
+
+            PreparedStatement pst = cnx2.prepareStatement(requet);
+            pst.setInt(1, p.getId());  // Assuming getQuizId() returns the Quiz ID
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Suppression réussie");
+            } else {
+                System.out.println("Aucune suppression effectuée. Vérifiez l'ID.");
+            }
         } catch (SQLException e) {
-            handleSQLException(e, "suppression de l'utilisateur");
+            System.out.println(e.getMessage());
+
         }
     }
 
@@ -176,7 +187,27 @@ public class UserService implements ICrud<User> {
     }
 
 
+    public boolean deleteUser(int id) {
+        try {
+            // Get database connection
+            Connection conn = DatabaseConnection.getConnection();
 
+            // Prepare delete statement
+            String query = "DELETE FROM user WHERE id = ?";
+            PreparedStatement ps = conn.prepareStatement(query);
 
+            // Set the id parameter
+            ps.setInt(1, id);
 
+            // Execute the delete operation
+            int rowsAffected = ps.executeUpdate();
+
+            // Return true if deletion was successful (at least one row affected)
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

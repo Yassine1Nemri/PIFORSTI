@@ -13,6 +13,9 @@ import java.io.IOException;
 public class GererProjetController {
 
     public Button login;
+    public Button rr;
+    public Button ee;
+    public Button gg;
     @FXML
     private Button btnProjet;
 

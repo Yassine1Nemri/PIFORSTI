@@ -25,7 +25,7 @@
         <Pagination fx:id="pagination" layoutX="260.0" layoutY="461.0" prefWidth="362.0" AnchorPane.topAnchor="450.0" />
         <Button layoutX="771.0" layoutY="579.0" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="98.0" text="Refresh" AnchorPane.topAnchor="579.0" />
         <Button layoutX="23.0" layoutY="612.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="98.0" text="Logout" AnchorPane.topAnchor="612.0" />
-        <Button layoutX="23.0" layoutY="620.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="26.0" prefWidth="98.0" text="Logout" AnchorPane.topAnchor="612.0" />
+        <Button layoutX="23.0" layoutY="620.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="26.0" prefWidth="98.0" text="delete" AnchorPane.topAnchor="612.0" />
 
         <TextField fx:id="searchField" layoutX="372.0" layoutY="10.0" prefHeight="19.0" promptText="Search..." />
         <Button fx:id="search" layoutX="691.0" layoutY="20.0" mnemonicParsing="false" onAction="#search" prefWidth="74.0" text="Search" />

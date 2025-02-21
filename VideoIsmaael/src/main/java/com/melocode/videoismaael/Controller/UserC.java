@@ -25,6 +25,10 @@ public class UserC {
     private User user;
 
 
+        public User getUser() {
+            return this.getUser();
+        }
+
     UserService us= new UserService();
     public void setData(User q) {
         this.user = q;
