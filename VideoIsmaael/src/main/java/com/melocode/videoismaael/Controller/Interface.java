@@ -71,6 +71,9 @@ public class Interface {
     @FXML
     private Pane pn_update;
     @FXML
+    private TextField tf_fn1;
+
+    @FXML
     private Preferences preferences;
 
     @FXML
@@ -88,8 +91,6 @@ public class Interface {
     private TextField tousE;
     @FXML
     private TextField numE;
-    @FXML
-    private TextField tf_fn1;
 
     @FXML
     private TextField tf_ln;
@@ -114,6 +115,7 @@ public class Interface {
     User tmpp = new User();
     UserService us = new UserService();
 
+    private User currentUser;
 
 
 
@@ -138,7 +140,6 @@ public class Interface {
             alert.showAndWait();
             return;
         }
-
 
         try {
             // Attempt to parse the text as an integer
@@ -311,6 +312,7 @@ public class Interface {
 
     }
 
+
     @FXML
     void toSignup(ActionEvent event) {
         generateCaptcha();
@@ -320,8 +322,26 @@ public class Interface {
 
     @FXML
     void toUpdate(ActionEvent event) {
-        pn_update.toFront();
+        // Assuming you want to navigate to the Sidebar screen
+        try {
+            // Load the SideBar FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SideBar.fxml"));
+            Parent sideBar = loader.load();
+
+            // Assuming you have a reference to your root container or scene
+            Scene scene = pn_update.getScene();
+            scene.setRoot(sideBar);
+
+            // Optionally, you can add additional logic if you want to pass data to the SideBar controller
+            Object sideBarController = loader.getController();
+            // sideBarController.someMethodToPassData();
+
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle potential exceptions such as file not found
+        }
     }
+
+
 
     @FXML
     void tosignin(ActionEvent event) {
@@ -436,6 +456,7 @@ public class Interface {
                         tf_num1.setText(String.valueOf(tmpp.getTel()));
                         tf_email1.setText(tmpp.getEmail());
                         tf_pass1.setText(tmpp.getPassword());
+                        System.out.println("User ID for update: " + id.getText());
 
                         if (tmpp.getIs_banned() == 1) {
                             System.out.println("User is banned.");
@@ -456,7 +477,7 @@ public class Interface {
                                 window.show();
                             } else {
                                 System.out.println("User logged in.");
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Projet.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/sideBar.fxml"));
                                 Parent adminRoot = loader.load();
 
                                 Scene adminScene = new Scene(adminRoot);

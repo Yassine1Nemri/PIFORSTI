@@ -124,6 +124,32 @@ public class UserService implements ICrud<User> {
         return executeQueryWithParams(query, endIndex - startIndex, startIndex);
     }
 
+    public User getUserById(int id) {
+        User user = null;
+        String query = "SELECT * FROM users WHERE id = ?";
+
+        try (PreparedStatement ps = cnx2.prepareStatement(query)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new User(
+                        rs.getInt("id"),
+                        rs.getString("email"),
+                        rs.getString("roles"),
+                        rs.getString("password"),
+                        rs.getString("name"),
+                        rs.getString("prenom"),
+                        rs.getInt("tel"),
+                        rs.getInt("is_banned")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
 
     private String hashPassword(String plainPassword) {
         return BCrypt.hashpw(plainPassword, BCrypt.gensalt());
@@ -210,4 +236,7 @@ public class UserService implements ICrud<User> {
             return false;
         }
     }
+
+
+
 }

@@ -1129,33 +1129,5 @@ public class Dashboard {
     }
 
 
-    @FXML
-    public void handleDeleteUser(ActionEvent actionEvent) {
-        try {
-            // Get the source button that triggered the event
-            Node source = (Node) actionEvent.getSource();
-
-            // Get the parent AnchorPane that contains the user card
-            AnchorPane userCard = (AnchorPane) source.getParent();
-
-            // Get the UserC controller
-            UserC userController = (UserC) userCard.getUserData();
-
-            if (userController != null) {
-                User userToDelete = userController.getUser();
-                if (userToDelete != null) {
-                    // Delete the user
-                    us.supprimerEntite(userToDelete);
-
-                    // Refresh the grid
-                    grid.getChildren().clear();
-                    displayg("");
-                }
-            }
-        } catch (Exception e) {
-            System.err.println("Error deleting user: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
 }

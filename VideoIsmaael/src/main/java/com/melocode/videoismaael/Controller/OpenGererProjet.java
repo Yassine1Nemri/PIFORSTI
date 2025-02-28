@@ -11,7 +11,7 @@ public class OpenGererProjet extends Application {
     public void start(Stage primaryStage) {
         try {
             // Charger le fichier FXML pour l'interface de gestion
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GererProjet.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interface.fxml"));
             System.out.println("Ouverture de la gestion des projets");
             Scene scene = new Scene(loader.load());
             primaryStage.setTitle("Gestion des Projets et Tâches");
