@@ -7,26 +7,158 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="498.0" prefWidth="863.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.videoismaael.Controller.Dashboard">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(to bottom right, #ffffff, #f5f5f5);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.videoismaael.Controller.Dashboard">
     <children>
-        <Label layoutX="72.0" layoutY="17.0" prefHeight="40.0" prefWidth="823.0" text="Users List">
-            <font>
-                <Font name="Segoe UI Bold" size="24.0" />
-            </font>
-        </Label>
-        <ScrollPane layoutX="190.0" layoutY="242.0" prefHeight="441.0" prefWidth="575.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="222.0">
-            <content>
-                <GridPane fx:id="grid" alignment="CENTER">
-                </GridPane>
-            </content>
-        </ScrollPane>
-        <Pagination fx:id="pagination" layoutX="260.0" layoutY="461.0" prefWidth="362.0" AnchorPane.topAnchor="450.0" />
-        <Button layoutX="771.0" layoutY="579.0" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="98.0" text="Refresh" AnchorPane.topAnchor="579.0" />
-        <Button layoutX="23.0" layoutY="612.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="98.0" text="Logout" AnchorPane.topAnchor="612.0" />
+        <!-- Left Sidebar -->
+        <VBox prefHeight="650.0" prefWidth="200.0" style="-fx-background-color: #333333;">
+            <children>
+                <!-- App Logo -->
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@pg.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
 
-        <TextField fx:id="searchField" layoutX="372.0" layoutY="10.0" prefHeight="19.0" promptText="Search..." />
-        <Button fx:id="search" layoutX="691.0" layoutY="20.0" mnemonicParsing="false" onAction="#search" prefWidth="74.0" text="Search" />
+                <!-- Navigation Options -->
+                <VBox alignment="CENTER" prefHeight="450.0" prefWidth="200.0" spacing="20.0">
+                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #4285F4; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="Dashboard" />
+                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: #4285F4; -fx-border-radius: 5; -fx-background-radius: 5;" text="Users" />
+                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: #4285F4; -fx-border-radius: 5; -fx-background-radius: 5;" text="Settings" />
+                </VBox>
+
+                <!-- Logout Button -->
+                <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <Button mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #E53935; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="Logout" />
+                </VBox>
+            </children>
+        </VBox>
+
+        <!-- Main Content Area -->
+        <AnchorPane layoutX="200.0" prefHeight="650.0" prefWidth="800.0">
+            <children>
+                <!-- Header Area -->
+                <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="60.0" prefWidth="760.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                    <Label prefHeight="40.0" prefWidth="200.0" text="  Users List" textFill="#333333">
+                        <font>
+                            <Font name="Segoe UI Bold" size="24.0" />
+                        </font>
+                    </Label>
+
+                    <TextField fx:id="searchField" prefHeight="40.0" prefWidth="300.0" promptText="Search users..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #E0E0E0; -fx-background-color: #F5F5F5; -fx-padding: 0 15;">
+                        <font>
+                            <Font name="Segoe UI" size="14.0" />
+                        </font>
+                    </TextField>
+
+                    <Button fx:id="search" mnemonicParsing="false" onAction="#search" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4285F4; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold;" text="Search">
+                        <font>
+                            <Font name="Segoe UI" size="14.0" />
+                        </font>
+                    </Button>
+
+                    <Button mnemonicParsing="false" onAction="#refresh" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold;" text="Refresh">
+                        <font>
+                            <Font name="Segoe UI" size="14.0" />
+                        </font>
+                    </Button>
+                </HBox>
+
+                <!-- User Statistics Summary -->
+                <HBox layoutX="20.0" layoutY="100.0" prefHeight="100.0" prefWidth="760.0" spacing="20.0">
+                    <!-- Active Users Card -->
+                    <AnchorPane prefHeight="100.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                        <Label layoutX="20.0" layoutY="15.0" text="Active Users" textFill="#757575">
+                            <font>
+                                <Font name="Segoe UI" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="40.0" text="254" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="24.0" />
+                            </font>
+                        </Label>
+                    </AnchorPane>
+
+                    <!-- New Users Card -->
+                    <AnchorPane prefHeight="100.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                        <Label layoutX="20.0" layoutY="15.0" text="New Users" textFill="#757575">
+                            <font>
+                                <Font name="Segoe UI" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="40.0" text="42" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="24.0" />
+                            </font>
+                        </Label>
+                    </AnchorPane>
+
+                    <!-- Total Users Card -->
+                    <AnchorPane prefHeight="100.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                        <Label layoutX="20.0" layoutY="15.0" text="Total Users" textFill="#757575">
+                            <font>
+                                <Font name="Segoe UI" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="40.0" text="1,248" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="24.0" />
+                            </font>
+                        </Label>
+                    </AnchorPane>
+                </HBox>
+
+                <!-- User List Area -->
+                <AnchorPane layoutX="20.0" layoutY="220.0" prefHeight="380.0" prefWidth="760.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                    <!-- User List Header -->
+                    <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="15.0" prefHeight="40.0" prefWidth="730.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 5;">
+                        <Label prefWidth="150.0" text="  User ID" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label prefWidth="150.0" text="Name" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label prefWidth="180.0" text="Email" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label prefWidth="150.0" text="Phone" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label prefWidth="100.0" text="Actions" textFill="#333333">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <!-- User List Content -->
+                    <ScrollPane layoutX="15.0" layoutY="65.0" prefHeight="265.0" prefWidth="730.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                        <content>
+                            <GridPane fx:id="grid" alignment="CENTER" vgap="10">
+                            </GridPane>
+                        </content>
+                    </ScrollPane>
+
+                    <!-- Pagination -->
+                    <Pagination fx:id="pagination" layoutX="265.0" layoutY="330.0" prefWidth="200.0" />
+                </AnchorPane>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>
