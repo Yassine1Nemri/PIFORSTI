@@ -53,4 +53,5 @@ public class SidebarController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }

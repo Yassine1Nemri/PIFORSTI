@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.videoismaael.Controller.HomeController">
+    <children>
+        <VBox spacing="10" alignment="TOP_CENTER" prefWidth="800.0" prefHeight="600.0">
+            <!-- Header Section -->
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+
+            </ImageView>
+            <Label text="Home" style="-fx-font-size: 24px; -fx-text-fill: white;" />
+            <Button text="Profile" style="-fx-background-color: #0073b1; -fx-text-fill: white;" />
+            <Button text="Messages" style="-fx-background-color: #0073b1; -fx-text-fill: white;" />
+            <Button text="Notifications" style="-fx-background-color: #0073b1; -fx-text-fill: white;" />
+        </VBox>
+
+        <!-- Main Content Section -->
+        <HBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 20;">
+            <!-- Sidebar -->
+            <VBox spacing="10" alignment="TOP_CENTER" prefWidth="200.0">
+                <Button text="My Network" style="-fx-background-color: #f3f2ef;" />
+                <Button text="Jobs" style="-fx-background-color: #f3f2ef;" />
+                <Button text="Messaging" style="-fx-background-color: #f3f2ef;" />
+                <Button text="Notifications" style="-fx-background-color: #f3f2ef;" />
+            </VBox>
+
+            <!-- Feed Section -->
+            <VBox spacing="10" alignment="TOP_CENTER" prefWidth="400.0">
+                <Label text="Welcome to your professional community" style="-fx-font-size: 18px;" />
+                <Button text="Start a post" style="-fx-background-color: #0073b1; -fx-text-fill: white;" />
+                <!-- Add more feed items here -->
+            </VBox>
+
+            <!-- Right Sidebar -->
+            <VBox spacing="10" alignment="TOP_CENTER" prefWidth="200.0">
+                <Label text="LinkedIn News" style="-fx-font-size: 16px;" />
+                <!-- Add news items here -->
+            </VBox>
+        </HBox>
+    </children>
+</AnchorPane>
